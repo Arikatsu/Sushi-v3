@@ -12,16 +12,9 @@ namespace Sushi.Commands.Fun
         {
             await DeferAsync();
 
-            var httpClient = new HttpClient();
-            var response = await httpClient.GetAsync("http://api.nekos.fun:8080/api/pat");
-            var content = await response.Content.ReadAsStringAsync();
-
-            JObject patJson = JObject.Parse(content);
-
             Embed embed = new EmbedBuilder()
                 .WithColor(Color.DarkGrey)
-                .WithDescription($"{Context.User.Mention} pats {user.Mention}.")
-                .WithImageUrl(patJson?["image"]?.ToString())
+                .WithDescription("fuck")
                 .Build();
 
             await FollowupAsync(embeds: new[] { embed });
